@@ -147,7 +147,7 @@ class IpGeobase(object):
     def _update_cidr(self, cidr):
         """ Rebuild IPRegion table with fresh data (old ip ranges are removed for simplicity)"""
         new_ip_ranges = []
-        is_bulk_create_supported = hasattr(IpRange.objects, 'bulk_create')
+        is_bulk_create_supported = False #hasattr(IpRange.objects, 'bulk_create')
         IpRange.objects.all().delete()
         city_region_mapping = self._build_city_region_mapping()
 
