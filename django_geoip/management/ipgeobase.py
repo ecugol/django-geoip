@@ -164,7 +164,7 @@ class IpGeobase(object):
             else:
                 IpRange.objects.create(**entry)
         if is_bulk_create_supported:
-            IpRange.objects.bulk_create(new_ip_ranges)
+            IpRange.objects.bulk_create(new_ip_ranges, 50)
 
     def _build_city_region_mapping(self):
         cities = City.objects.values('id', 'region__id')
